@@ -1,43 +1,32 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  $("#temperature").html(thermostat.getCurrentTemperature());
 
-  function setColor() {
-    if (thermostat.getEnergyUsage() === 'low-power') {
-      var backgroundColor = '#00853f';
-    } else if (thermostat.getEnergyUsage() === "medium-power") {
-      var backgroundColor = '#f3ec19';
-    } else {
-      var backgroundColor = '#cc0000'
-    }
-    $('body').css('background-color', backgroundColor);
-  };
+  function updateTemperature() {
+    $("#temperature").html(thermostat.getCurrentTemperature());
+    $("#thermostat").attr("class", thermostat.getEnergyUsage());
+  }
 
-  setColor();
+  updateTemperature();
 
   $('#temp_up').click(function() {
     thermostat.increaseTemperature();
-    $("#temperature").html(thermostat.getCurrentTemperature());
-    setColor();
+    updateTemperature();
 
   });
 
   $('#temp_down').click(function() {
     thermostat.decreaseTemperature();
-    $("#temperature").html(thermostat.getCurrentTemperature());
-    setColor();
+    updateTemperature();
   });
 
   $('#temp_reset').click(function() {
     thermostat.reset();
-    $("#temperature").html(thermostat.getCurrentTemperature());
-    setColor();
+    updateTemperature();
   });
 
   $('#powersave').change(function() {
     thermostat.togglePowerSaving();
-    $("#temperature").html(thermostat.getCurrentTemperature());
-    setColor();
+    updateTemperature();
   });
 
 

@@ -3,6 +3,7 @@
 
   <head>
     <title>Thermostat</title>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
     <script src="lib/jquery-1.11.3/jquery-1.11.3.js"></script>
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
@@ -10,11 +11,13 @@
 
   <body>
     <section>
+    <div id="thermostat">
       <button type="button" id="temp_up">Up</button>
       <button type="button" id="temp_down">Down</button>
       <button type="button" id="temp_reset">Reset</button>
-      <input type="checkbox" name="powersave" id="powersave" checked/>
+      <input type="checkbox" name="powersave" id="powersave" checked />
       <p id="temperature"></p>
+    </div>
     </section>
 
   </body>
