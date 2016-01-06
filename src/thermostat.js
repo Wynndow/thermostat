@@ -5,7 +5,7 @@ function Thermostat() {
 
 const DEFAULT_TEMP = 20;
 const MIN_TEMP = 10;
-const MAX_TEMP = 32; 
+const MAX_TEMP = 32;
 const POWER_SAVE_MAX_TEMP = 25;
 const YELLOW_TEMP = 18;
 const RED_TEMP = 25;
@@ -32,13 +32,13 @@ Thermostat.prototype.reset = function() {
   this.temperature = DEFAULT_TEMP;
 };
 
-Thermostat.prototype.getColour = function() {
+Thermostat.prototype.getEnergyUsage = function() {
   if (this.temperature < YELLOW_TEMP) {
-    return "green";
+    return "low-power";
   } else if (this.temperature < RED_TEMP) {
-    return "yellow";
+    return "medium-power";
   } else {
-    return "red";
+    return "high-power";
   }
 };
 
