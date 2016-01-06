@@ -3,19 +3,20 @@
 
   <head>
     <title>Thermostat</title>
+    <script src="lib/jquery-1.11.3/jquery-1.11.3.js"></script>
     <script src="src/thermostat.js"></script>
-    <script>var thermostat = new Thermostat()</script>
+    <script src="src/interface.js"></script>
   </head>
 
   <body>
-    <button type="button" id="temp_up">Up</button>
-    <button type="button" id="temp_down">Down</button>
-    <button type="button" id="temp_reset">Reset</button>
-    <input type="checkbox" name="powersave" id="powersave" />
-    <p id="temperature"></p>
-    <script>
-    document.getElementById("temperature").innerHTML = thermostat.getCurrentTemperature();
-    </script>
+    <section>
+      <button type="button" id="temp_up">Up</button>
+      <button type="button" id="temp_down">Down</button>
+      <button type="button" id="temp_reset">Reset</button>
+      <input type="checkbox" name="powersave" id="powersave" />
+      <p id="temperature"></p>
+    </section>
+
   </body>
 
 </html>
