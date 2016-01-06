@@ -25,7 +25,27 @@ describe("Thermostat", function() {
       thermostat.decreaseTemperature();
       expect(thermostat.currentTemperature).toEqual(temp - 1);
     });
-  });
-});
 
-  
+    it("has a minimum temperature of 10", function() {
+      for (count = 0; count < 11; count ++) {
+        thermostat.decreaseTemperature();
+      }
+      expect(thermostat.currentTemperature).toEqual(10);
+    });
+  });
+
+  describe('#powerSavingMode', function() {
+    it('has a default of off', function() {
+      expect(thermostat.isPowerSaving).toBe(false)
+    });
+
+    it('has a max temp of 32 when off', function() {
+      for (count = 0; count < 20; count ++) {
+        thermostat.increaseTemperature()
+      }
+      expect(thermostat.currentTemperature).toEqual(32);
+    });
+  });
+
+
+});
