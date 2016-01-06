@@ -7,45 +7,89 @@ describe("Thermostat", function() {
 
   describe("#temperature", function() {
     it("has a default temperature of 20", function() {
-      expect(thermostat.currentTemperature).toEqual(20);
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
     });
   });
 
   describe("#increaseTemperature", function() {
     it("increases temperature by 1", function() {
-      var temp = thermostat.currentTemperature;
+      var temp = thermostat.getCurrentTemperature();
       thermostat.increaseTemperature();
-      expect(thermostat.currentTemperature).toEqual(temp + 1);
+      expect(thermostat.getCurrentTemperature()).toEqual(temp + 1);
     });
   });
 
   describe("#decreaseTemperature", function() {
     it("decreases temperature by 1", function() {
-      var temp = thermostat.currentTemperature;
+      var temp = thermostat.getCurrentTemperature();
       thermostat.decreaseTemperature();
-      expect(thermostat.currentTemperature).toEqual(temp - 1);
+      expect(thermostat.getCurrentTemperature()).toEqual(temp - 1);
     });
 
     it("has a minimum temperature of 10", function() {
       for (count = 0; count < 11; count ++) {
         thermostat.decreaseTemperature();
       }
-      expect(thermostat.currentTemperature).toEqual(10);
+      expect(thermostat.getCurrentTemperature()).toEqual(10);
     });
   });
 
   describe('#powerSavingMode', function() {
-    it('has a default of off', function() {
-      expect(thermostat.isPowerSaving).toBe(false)
+    it('has a default of true', function() {
+      expect(thermostat.isPowerSaving).toBe(true);
     });
 
-    it('has a max temp of 32 when off', function() {
+    it('has a max temp of 25 when on', function() {
       for (count = 0; count < 20; count ++) {
-        thermostat.increaseTemperature()
+        thermostat.increaseTemperature();
       }
-      expect(thermostat.currentTemperature).toEqual(32);
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
+    });
+    
+    it('has a max temp of 32 when off', function() {
+      thermostat.togglePowerSaving();
+      for (count = 0; count < 20; count ++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
 
+  describe("#reset", function() {
+    it("resets the temperature to the default", function() {
+      thermostat.increaseTemperature();
+      thermostat.reset();
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    });
+  });
 
+  describe("#getColour", function() {
+    it("returns green if temperature less than 18", function() {
+      for (count = 0; count < 3; count ++) {
+        thermostat.decreaseTemperature();
+      }
+      expect(thermostat.getColour()).toEqual("green");
+    });
+
+    it("returns yellow if 18 <= temperature < 25", function() {
+      for (count = 0; count < 2; count ++) {
+        thermostat.decreaseTemperature();
+      }
+      expect(thermostat.getColour()).toEqual("yellow");
+    });
+
+    it("returns yellow if 18 <= temperature < 25", function() {
+      for (count = 0; count < 4; count ++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.getColour()).toEqual("yellow");
+    });
+
+    it("returns red if temperature less than 18", function() {
+      for (count = 0; count < 5; count ++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.getColour()).toEqual("red");
+    });
+  });
 });
