@@ -8,6 +8,11 @@
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
     <script src="src/weather.js"></script>
+    <script src="src/AutoCompleteCity.js"></script>
+    <script src="src/countryCodes.js"></script>
+
+    <link rel="stylesheet" href="lib/autoCompleteJquery/jquery-ui.css">
+    <script src="lib/autoCompleteJquery/jquery-ui.js"></script>
 
   </head>
 
@@ -24,10 +29,23 @@
       </div>
 
       <p id="city_weather"></p>
+      <p id="city_weather_desc"></p>
+
 
     </div>
     </section>
 
+    <section>
+      <div class="ui-widget">
+        <label for="city">Your city: </label>
+        <input id="city">
+        Powered by <a href="http://geonames.org">geonames.org</a>
+      </div>
+
+    </section>
+
+     <p id="city_temp"></p>
+    <p id="selected_city"></p>
   </body>
 
 </html>

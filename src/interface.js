@@ -1,8 +1,8 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  var weather = new Weather('London', 'uk');
+  
   updateTemperature();
-  // weather('London', 'UK');
+
 
 
   function updateTemperature() {
