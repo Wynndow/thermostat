@@ -20,8 +20,8 @@ function getWeather(theSelectedArray){
 
 function queryPreperation(selectedArray){
   this.API = '424ec95efbcca8f160c02550ec521a03';
-  var properCountries = invert(isoCountries);
-  var countryCode = properCountries[(selectedArray[2].trim().replace(/ /g,"_"))] ;
+  // var properCountries = invert(isoCountries);
+  var countryCode = isoCountries[(selectedArray[2].trim().replace(/ /g,"_"))] ;
   var queryString = selectedArray[0] + ',' + countryCode + '&appid='+ this.API;
   return queryString;
 }
