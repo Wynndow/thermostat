@@ -17,29 +17,32 @@
   </head>
 
   <body>
-    <section>
-    <div id="thermostat">
+    <h1>Thermostat!</h1>
+    <section id="thermostat">
+    <div>
+
       <p id="temperature"></p>
 
       <div id="controls">
         <button type="button" id="temp_up">Up</button>
         <button type="button" id="temp_down">Down</button>
         <button type="button" id="temp_reset">Reset</button>
-        <input type="checkbox" name="powersave" id="powersave" checked />
+        <br>
+        <p>Power saving mode? <input type="checkbox" name="powersave" id="powersave" checked /></p>
       </div>
 
-      <p id="city_weather"></p>
+      <p id="city_name"></p>
       <p id="city_weather_desc"></p>
+      <p id="city_temp"></p>
 
 
     </div>
     </section>
 
-    <section>
-      <div class="ui-widget">
+    <section id="city_select">
+      <div class="widget">
         <label for="city">Your city: </label>
         <input id="city">
-        Powered by <a href="http://geonames.org">geonames.org</a>
       </div>
 
     </section>
