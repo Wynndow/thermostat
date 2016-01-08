@@ -1,16 +1,12 @@
 $(document).ready(function() {
-  var thermostat = new Thermostat();
 
+  var thermostat = new Thermostat();
   updateTemperature();
 
-
-
   function updateTemperature() {
-    $("#temperature").html(thermostat.getCurrentTemperature());
+    $("#temperature").text(thermostat.getCurrentTemperature());
     $("body").attr("class", thermostat.getEnergyUsage());
   }
-
-
 
   $('#temp_up').click(function() {
     thermostat.increaseTemperature();

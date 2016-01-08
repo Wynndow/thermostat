@@ -45,3 +45,7 @@
 .widget {
   font-size: 1em;
 }
+
+#city {
+  position: block;
+}

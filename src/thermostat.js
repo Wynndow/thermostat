@@ -27,10 +27,14 @@ var Thermostat = (function() {
   };
 
   Thermostat.prototype.togglePowerSaving = function() {
+    if (this.temperature > POWER_SAVE_MAX_TEMP) {
+      this.temperature = 25
+    }
     this.isPowerSaving = !this.isPowerSaving;
   };
 
   Thermostat.prototype.reset = function() {
+
     this.temperature = DEFAULT_TEMP;
   };
 

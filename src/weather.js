@@ -4,24 +4,20 @@ function getWeather(theSelectedArray){
     url: 'http://api.openweathermap.org/data/2.5/weather?q=' + queryPreperation(theSelectedArray),
     type: 'GET',
     data: null,
-    success: success,
+    success: doAThing,
     dataType: 'json',
   })
 
-  function success(data) {
-    var cityName = data.name;
-    var cityTemp = (data.main.temp- 273.15).toFixed(0);
-    var cityWeatherDesc = data.weather[0].description;
-    $('#city_name').text(cityName);
-    $('#city_temp').text(cityTemp + ' degrees');
-    $('#city_weather_desc').text(cityWeatherDesc);
+  function doAThing(data) {
+    $('#city_name').text(data.name);
+    $('#city_temp').text(((data.main.temp).toFixed(0)) + ' degrees');
+    $('#city_weather_desc').text(data.weather[0].description);
   }
 }
 
 function queryPreperation(selectedArray){
   this.API = '424ec95efbcca8f160c02550ec521a03';
-  // var properCountries = invert(isoCountries);
   var countryCode = isoCountries[(selectedArray[2].trim().replace(/ /g,"_"))] ;
-  var queryString = selectedArray[0] + ',' + countryCode + '&appid='+ this.API;
+  var queryString = selectedArray[0] + ',' + countryCode + '&appid='+ this.API + '&units=metric';
   return queryString;
 }
