@@ -4,7 +4,7 @@ $(document).ready(function() {
   updateTemperature();
 
   function updateTemperature() {
-    $("#temperature").text(thermostat.getCurrentTemperature());
+    $("#temperature").html(thermostat.getCurrentTemperature() + '&degc');
     $("body").attr("class", thermostat.getEnergyUsage());
   }
 
@@ -24,9 +24,14 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#powersave').change(function() {
-    thermostat.togglePowerSaving();
+  $('#powersave').click(function() {
+    thermostat.togglePowerSaving;
     updateTemperature();
+    if (thermostat.isPowerSaving) {
+      $('#powersave').attr('background-color', '#00f000')
+    } else{
+      $('#powersave').attr('background-color', '#e80033')
+    }
   });
 
 

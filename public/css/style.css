@@ -46,6 +46,29 @@
   font-size: 1em;
 }
 
-#city {
+/*#city {
   position: block;
+}*/
+
+.buttons {
+  border-radius: 5px;
+  border: solid 2px black;
+  background-color: #828a87;
+  height: 50px;
+  width: 150px;
+  margin: auto;
+  text-align: center;
+  display: inline;
+
+}
+
+#powersave {
+  border-radius: 5px;
+  border: solid 2px black;
+  background-color: #828a87;
+  height: 50px;
+  width: 150px;
+  margin: auto;
+  text-align: center;
+  display: inline;
 }
